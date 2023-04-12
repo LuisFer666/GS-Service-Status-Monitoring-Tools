@@ -4,7 +4,6 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild, AfterViewInit } from '
 import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
 import { environment } from 'src/environments/environment';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';

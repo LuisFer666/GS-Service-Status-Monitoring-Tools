@@ -93,7 +93,7 @@
               "src/assets"
             ],
             "styles": [
-              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/js/bootstrap.min.css",
               "src/styles.scss",
               "node_modules/datatables.net-dt/css/jquery.dataTables.css",
               "node_modules/datatables.net-responsive-dt/css/responsive.dataTables.css"

@@ -36,6 +36,7 @@ $Frontend-theme: mat.define-light-theme((
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%;
+
   
     font-size: 1rem;
     line-height: 1.25;
@@ -57,4 +58,11 @@ nav{
   background: #fff;
 
 
+}
+h3{
+    
+  font-size: 2.625rem;
+  line-height: 1.1428571429;
+  font-family: LexiaLightItalic,Times,"Times New Roman",serif;
+  letter-spacing: 1.1px;
 }
