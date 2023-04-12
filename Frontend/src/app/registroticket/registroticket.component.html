@@ -1,0 +1,85 @@
+
+<div class="card mb-5 mb-xl-10 responsive"  >
+  <div class="card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse"
+    data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
+    <div class="card-title m-0">
+      <h3 class="fw-bolder m-0">Registro de tickets</h3>
+    </div>
+  </div>
+  <div *ngIf="User" id="kt_account_profile_details" class="collapse show">
+    <form (ngSubmit)="saveSettings()">
+            <div class="card-body border-top p-9">
+
+      
+        <!-- Username -->
+        <div class="row mb-6" contenteditable="false">
+          <label class="col-lg-4 col-form-label fw-bold fs-6 ">Username</label> 
+          <div class="col-lg-8 fv-row">
+            <input type="text" contenteditable="false" class="form-control form-control-lg form-control-solid"
+              placeholder="Username" id="username" name="username" value="{{User.username}}" readonly />
+          </div>
+        </div>
+       
+        <!-- BTG -->
+        <div class="row mb-6">
+          <label class="col-lg-4 col-form-label fw-bold fs-6">BTG</label>
+          <div class="col-lg-8 fv-row">
+            <input type="text" class="form-control form-control-lg form-control-solid" placeholder="btg"
+              name="fName" value="{{User.btg}}" readonly />
+          </div>
+        </div>
+        <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6"><span class="required">Sistema reportado</span></label>
+            <div class="col-lg-8 fv-row">
+              <select  formControlName="preguntaSeguridad1" class=" form-select form-select-solid form-select-lg fw-bold" name="sistema" 
+                >
+               <option value="" disabled selected>Elige un servicio</option>
+              <!--  <option [value]="item" *ngFor=" let item of sistema">{{item}}</option>-->
+              </select>
+             
+            </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6">Problema</label>
+            <div class="col-lg-8 fv-row">
+              <input type="text" class="form-control form-control-lg form-control-solid" placeholder="Problema"
+                name="problema" value=""  />
+            </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6">Prioridad</label>
+            <div class="col-lg-2 fv-row">
+          <div class="custom-control custom-radio ">
+            <input id="green" type="radio" class="custom-control-input" style="background-color: red; color: red;" value="green" name="status" ngModel>
+            <label class="custom-control-label" for="green">Service available</label>
+         </div>
+         <div class="custom-control custom-radio ">
+            <input id="ambar" type="radio" class="custom-control-input" value="ambar" name="status" ngModel>
+            <label class="custom-control-label" for="ambar">Service disruption</label>
+         </div> <div class="custom-control custom-radio ">
+            <input id="red" type="radio" class="custom-control-input"  value="red" name="status" ngModel>
+            <label class="custom-control-label" for="red">Service outage</label>
+         </div>
+         </div>
+          </div>
+          <div class="row mb-6">
+            <label class="col-lg-4 col-form-label fw-bold fs-6">Adjunto</label>
+            <div class="col-lg-8 fv-row">
+                <input type="file" name="adjunto" accept=".pdf,.jpg,.png" multiple />  
+            </div>
+          
+          <label class="col-lg-4 col-form-label fw-bold fs-6">Descripción</label>
+            <div class="col-lg-8 fv-row">
+                <textarea input contenteditable="false" class="form-control form-control-lg form-control-solid"
+                placeholder="Descripción" id="descripcion" name="descripcion" >
+                </textarea>
+            </div>
+          </div>
+      </div>
+
+      <div class="card-footer justify-content-end py-6 px-9" align="right">
+      <button type="button" class="btn btn-primary" mat-button (click)="saveSettings(); ">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
