@@ -1,0 +1,21 @@
+.navigation__primary-link--current-section {
+    border-bottom: 4px solid #d9338c;
+}
+a {
+    background-color: transparent;
+}
+.navigation__primary-link:before {
+    height: 0.25rem;
+    bottom: -0.25rem;
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    background-color: #d9338c;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    -ms-transform: scaleX(0);
+    transform: scaleX(0);
+    transition: all .15s ease-out;
+}
