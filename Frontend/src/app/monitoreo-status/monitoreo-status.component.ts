@@ -3,10 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MAT_TOOLTIP_DEFAULT_OPTIONS, MatTooltipDefaultOptions } from '@angular/material/tooltip';
 import { environment } from 'src/environments/environment';
-import { FormControl } from '@angular/forms';
-import { DataTableDirective } from 'angular-datatables';
+
 import { Router } from '@angular/router';
 import { Location, Time } from '@angular/common';
+import { interval } from 'rxjs';
 export const myCustomTooltipDefaults: MatTooltipDefaultOptions = {
   showDelay: 1000,
   hideDelay: 1000,
@@ -26,7 +26,9 @@ export class MonitoreoStatusComponent implements OnInit, AfterViewInit {
   Incidents: Incident[] = [];
   constructor(private http: HttpClient,
     private ref: ChangeDetectorRef, public _router: Router, public _location: Location) {
-    
+      interval(2000).subscribe(() => {
+        location.reload();
+        });
   }
   ngAfterViewInit(): void {
     const request = this.http.get<Servicio[]>(`${this.apiUrl}BusinessStatus`);
@@ -41,6 +43,7 @@ export class MonitoreoStatusComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     
   }
+  
   selectedData = [{ id: 1}, { id: 2}, { id: 3}, { id: 4}, { id: 5}, { id: 6 }];
 }
 export interface Servicio {
