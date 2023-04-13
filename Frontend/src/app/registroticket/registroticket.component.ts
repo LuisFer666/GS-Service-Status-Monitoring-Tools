@@ -3,6 +3,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '
 import {  Subscription } from 'rxjs';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Time } from '@angular/common';
+import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-registroticket',
   templateUrl: './registroticket.component.html',
@@ -14,7 +15,7 @@ export class RegistroticketComponent implements OnInit, OnDestroy, AfterViewInit
     submitted = false;
     today = new Date();
   loading = false;
-
+  apiUrl = environment.apiUrl;
  private unsubscribe: Subscription[] = [];
   
   constructor(
@@ -25,7 +26,7 @@ export class RegistroticketComponent implements OnInit, OnDestroy, AfterViewInit
   }
   
   ngAfterViewInit(): void {
-    const request = this.http.get<User>(`https://astrazeneca-ejemplo1.azurewebsites.net/User`);
+    const request = this.http.get<User>(`${this.apiUrl}User`);
     request.subscribe(data =>{
       console.log(data);
       this.User = data;
