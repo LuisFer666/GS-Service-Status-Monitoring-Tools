@@ -68,12 +68,9 @@ export interface Servicio {
   description:string;
   status:string;
   serviceStatuses: Array<servicestatuses>;
-  
 }
 export interface servicestatuses {
   name: string;
   status: string;
-  
- 
 }
 
